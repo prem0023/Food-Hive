@@ -1,7 +1,10 @@
-import "./style.css";
-import React from "react";
+export const IMG_CDN_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-const restaurant = [
+export const logo =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AIyWJnv-qeoSVFHoDSoWPoYpqTm_vWoxcg&usqp=CAU/";
+
+export const RestaurantList = [
   {
     type: "restaurant",
     data: {
@@ -1917,89 +1920,3 @@ const restaurant = [
     subtype: "basic",
   },
 ];
-
-const RestaurantCard = ({
-  name,
-  cloudinaryImageId,
-  cuisines,
-  lastMileTravel,
-}) => {
-  return (
-    <>
-      <div className="card">
-        <img
-          src={
-            "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-            cloudinaryImageId
-          }
-        ></img>
-        <h2>{name}</h2>
-        <h3>{cuisines.join(", ")}</h3>
-        <h4>{Math.ceil(lastMileTravel) + " KM"}</h4>
-      </div>
-    </>
-  );
-};
-
-const Footer = () => {
-  return <h3>Footer</h3>;
-};
-
-const App = () => {
-  return (
-    <>
-      <div className="header">
-        <div className="logo">
-          <a href="/">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AIyWJnv-qeoSVFHoDSoWPoYpqTm_vWoxcg&usqp=CAU"
-              alt="logo"
-            ></img>
-          </a>
-        </div>
-        <div className="navbar">
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>Cart</li>
-          </ul>
-        </div>
-      </div>
-      <div className="card-container">
-        {restaurant.map((restaurant) => {
-          return (
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
-          );
-        })}
-      </div>
-      <Footer />
-    </>
-  );
-};
-
-export default App;
-
-// var traverse = () => {
-//   console.log("Entered");
-//   var arr = ["I am good", " I am very good", "I am excellant"];
-
-//   var list = document.createElement("ul");
-
-//   var str = "";
-//   arr.map((value) => {
-//     str += "<li>" + value + "</li>";
-//   });
-// console.log(str);
-
-// var div = document.createElement("div");
-// console.log(div);
-// div.innerHTML(str);
-// console.log(div);
-
-//   const root = document.getElementById("root");
-//   root.innerHTML += str;
-//   console.log("Exit");
-// };
-
-// traverse();

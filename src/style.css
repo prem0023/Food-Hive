@@ -21,19 +21,23 @@
   height: 100px;
 }
 
-.card {
+.restaurant-card {
   padding: 10px;
   margin: 10px;
-  width: 250px;
+  width: 300px;
   border: 1px solid black;
 }
 
-.card > img {
+.restaurant-card > img {
   width: 100%;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.search-result {
+  display: none;
 }
