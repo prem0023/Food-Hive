@@ -6,7 +6,6 @@ import ShimmerUI from "./ShimmerUI";
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [restaurant, setRestaurant] = useState([]);
-  // const []
 
   const searchRestaurant = () => {
     setRestaurant(
@@ -31,7 +30,7 @@ const Body = () => {
     let json = await restroList.json();
     setRestaurant(json.data.cards[2].data.data.cards);
   }
-  console.log(restaurant);
+
   return restaurant.length == 0 ? (
     <ShimmerUI />
   ) : (

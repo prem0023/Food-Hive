@@ -1,12 +1,13 @@
 import { logo } from "./constant";
+import { Link } from "react-router-dom";
 
 const Title = () => {
   return (
     <>
       <div className="logo">
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="logo"></img>
-        </a>
+        </Link>
       </div>
     </>
   );
@@ -19,9 +20,15 @@ const Header = () => {
         <Title />
         <div className="navbar">
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/about"}>About</Link>
+            </li>
+            <li>
+              <Link to={"/contact"}>Contact</Link>
+            </li>
             <li>Cart</li>
           </ul>
         </div>
