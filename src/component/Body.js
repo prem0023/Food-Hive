@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { RestaurantList } from "./constant";
 import RestaurantCard from "./RestaurantCard";
+import ShimmerUI from "./ShimmerUI";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const [restaurant, setRestaurant] = useState(RestaurantList);
+  const [restaurant, setRestaurant] = useState([]);
+  // const []
 
   const searchRestaurant = () => {
     setRestaurant(
@@ -29,7 +31,10 @@ const Body = () => {
     let json = await restroList.json();
     setRestaurant(json.data.cards[2].data.data.cards);
   }
-  return (
+  console.log(restaurant);
+  return restaurant.length == 0 ? (
+    <ShimmerUI />
+  ) : (
     <>
       <div className="search-container">
         <h2 id="search-result"></h2>

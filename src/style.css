@@ -26,6 +26,7 @@
   margin: 10px;
   width: 300px;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 .restaurant-card > img {
@@ -40,4 +41,102 @@
 
 .search-result {
   display: none;
+}
+
+.search-container > input {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.shimmer-header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: rosybrown;
+}
+.shimmer-navbar {
+  display: flex;
+  /* justify-content: space-between; */
+  list-style: none;
+  gap: 5px;
+}
+.shimmer-logo {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  border-radius: 4px;
+}
+.shimmer-navbar > div {
+  padding: 5px;
+  width: 40px;
+  height: 10px;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.shimmer-restro-card {
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 400px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  flex-direction: column;
+  background-color: rgb(240, 235, 235);
+}
+
+.shimmer-img {
+  width: 95%;
+  height: 60% !important;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+  margin-left: 5px;
+}
+.shimmer-h2 {
+  width: 80%;
+  height: 10%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: white;
+}
+.shimmer-h3 {
+  width: 80%;
+  height: 8%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: white;
+}
+.shimmer-h4 {
+  width: 80%;
+  height: 7%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: white;
+}
+.shimmer-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.shimmer-search {
+  width: 10vw;
+  height: 20px;
+  background-color: rgb(240, 235, 235);
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-left: 10px;
 }
