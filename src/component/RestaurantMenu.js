@@ -1,26 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ShimmerUI from "./ShimmerUI";
 import { IMG_CDN_URL } from "./constant";
+import useRestaurant from "../utils/useRestaurant";
 
 const RestaurantMenu = () => {
-  const [menu, setMenu] = useState([]);
-  useEffect(() => {
-    getRestaurantDetail();
-  }, []);
+  const { id } = useParams();
+  // const params = useParams();
+  // const { id } = params;
 
-  const params = useParams();
-  const { id } = params;
-
-  const getRestaurantDetail = async () => {
-    const restro = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.572646&lng=88.36389500000001&restaurantId=" +
-        id
-    );
-
-    const json = await restro.json();
-    setMenu(json?.data);
-  };
+  const menu = useRestaurant(id);
 
   return menu.length == 0 ? (
     <>
@@ -35,6 +22,7 @@ const RestaurantMenu = () => {
         />
         <h2>{menu.cards[0]?.card?.card?.info?.city}</h2>
         <h2>{menu.cards[0]?.card?.card?.info?.costForTwoMessage}</h2>
+        <h2>{menu.cards[0]?.card?.card?.info?.locality}</h2>
         <h2>{menu.cards[0]?.card?.card?.info?.avgRating}</h2>
       </div>
 

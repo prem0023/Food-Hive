@@ -1,5 +1,6 @@
 import { logo } from "./constant";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Title = () => {
   return (
@@ -14,12 +15,14 @@ const Title = () => {
 };
 
 const Header = () => {
+  const isOnline = useOnline();
   return (
     <>
       <div className="header">
         <Title />
         <div className="navbar">
           <ul>
+            <li>{isOnline ? "🟢" : "🔴"}</li>
             <li>
               <Link to={"/"}>Home</Link>
             </li>
@@ -28,6 +31,9 @@ const Header = () => {
             </li>
             <li>
               <Link to={"/contact"}>Contact</Link>
+            </li>
+            <li>
+              <Link to={"./Instamart"}>Instamart</Link>
             </li>
             <li>Cart</li>
           </ul>

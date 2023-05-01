@@ -21,16 +21,9 @@ const ShimmerBody = () => {
       <ShimmerSearch />
 
       <div className="shimmer-card-container">
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
-        <ShimmerRestroCard />
+        {new Array(10).fill("").map((e, id) => {
+          return <ShimmerRestroCard key={id} />;
+        })}
       </div>
     </>
   );

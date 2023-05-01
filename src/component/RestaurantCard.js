@@ -14,9 +14,9 @@ const RestaurantCard = ({
         <img src={IMG_CDN_URL + cloudinaryImageId}></img>
         <Link to={"/restaurant/" + id}>
           <h2>{name}</h2>
-          <h3>{cuisines.join(", ")}</h3>
-          <h4>{Math.ceil(lastMileTravel) + " KM"}</h4>
         </Link>
+        <h3>{cuisines.join(", ")}</h3>
+        <h4>{Math.ceil(lastMileTravel) + " KM"}</h4>
       </div>
     </>
   );
