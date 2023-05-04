@@ -10,17 +10,20 @@ const RestaurantMenu = () => {
   const menu = useRestaurant(id);
 
   return menu.length == 0 ? (
-    <>
-      <div className="restaurant-menu-shimmer"></div>
-    </>
+    <div className="max-w-md max-h-80 bg-slate-400"></div>
   ) : (
-    <div className="restaurant-menu">
+    <div className="m-10">
       <div>
-        <h1>{menu.cards[0]?.card?.card?.info?.name}</h1>
+        <h1 className="font-bold text-3xl py-5">
+          {menu.cards[0]?.card?.card?.info?.name}
+        </h1>
         <img
+          className="my-3 rounded-lg shadow-lg"
           src={IMG_CDN_URL + menu.cards[0]?.card?.card?.info?.cloudinaryImageId}
         />
-        <h2>{menu.cards[0]?.card?.card?.info?.city}</h2>
+        <h2 className="font-bold text-xl my-2">
+          {menu.cards[0]?.card?.card?.info?.city}
+        </h2>
         <h2>{menu.cards[0]?.card?.card?.info?.costForTwoMessage}</h2>
         <h2>{menu.cards[0]?.card?.card?.info?.locality}</h2>
         <h2>{menu.cards[0]?.card?.card?.info?.avgRating}</h2>

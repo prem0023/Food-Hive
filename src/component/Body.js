@@ -25,18 +25,19 @@ const Body = () => {
     <ShimmerUI />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-10">
         <h2 id="search-result"></h2>
         <input
+          className="shadow-lg h-10 w-52 bg-purple-100 rounded-md"
           type="text"
-          placeholder="search"
+          placeholder=" Search.."
           value={searchText}
           onChange={(event) => {
             setSearchText(event.target.value);
           }}
         ></input>
         <button
-          className="search-btn"
+          className="rounded-lg h-10 w-16 bg-purple-300 ml-1 font-bold"
           onClick={() => {
             const data = searchRestaurant(restaurant, searchText);
             setFilteredRestaurant(data);
@@ -45,7 +46,7 @@ const Body = () => {
           Submit
         </button>
       </div>
-      <div className="card-container">
+      <div className="p-10 flex flex-wrap justify-between">
         {filteredRestaurant.map((restro) => {
           return <RestaurantCard {...restro.data} key={restro.data.id} />;
         })}
