@@ -5,7 +5,11 @@ import useOnline from "../utils/useOnline";
 const Title = () => {
   return (
     <Link to="/">
-      <img className="w-24 h-24 m-5" src={logo} alt="logo"></img>
+      <img
+        className="w-24 h-24 m-5 rounded-md hover:drop-shadow-lg"
+        src={logo}
+        alt="logo"
+      ></img>
     </Link>
   );
 };
@@ -18,16 +22,17 @@ const Header = () => {
         <Title />
         <ul className="flex items-center pr-5 ">
           <li>{isOnline ? "🟢" : "🔴"}</li>
-          <li className="px-3">
+          <li className="px-3 hover:font-bold">
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="px-3">
+
+          <li className="px-3 hover:font-bold">
             <Link to={"/about"}>About</Link>
           </li>
-          <li className="px-3">
+          <li className="px-3 hover:font-bold">
             <Link to={"/contact"}>Contact</Link>
           </li>
-          <li className="px-3">
+          <li className="px-3 hover:font-bold">
             <Link to={"./Instamart"}>Instamart</Link>
           </li>
           <li className="px-3">Cart</li>

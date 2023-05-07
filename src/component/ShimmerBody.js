@@ -1,7 +1,7 @@
 const ShimmerSearch = () => {
   return (
-    <div className="m-10">
-      <div className="shadow-lg w-56 h-10 bg-purple-100 rounded-md" />
+    <div className="flex justify-center py-16">
+      <div className="shadow-lg h-10 w-80 bg-purple-100 rounded-md" />
     </div>
   );
 };
@@ -17,7 +17,7 @@ const ShimmerBody = () => {
     <>
       <ShimmerSearch />
 
-      <div className="p-10 flex flex-wrap justify-between">
+      <div className="px-52 flex flex-wrap justify-between">
         {new Array(15).fill("").map((e, id) => {
           return <ShimmerRestroCard key={id} />;
         })}
