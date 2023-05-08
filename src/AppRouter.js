@@ -9,6 +9,9 @@ import Error from "./component/Error";
 import RestaurantMenu from "./component/RestaurantMenu";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import UserContext from "./component/UserContext";
+import store from "./utils/store";
+import { Provider } from "react-redux";
+import Cart from "./component/Cart";
 
 const Instamart = React.lazy(() => import("./component/Instamart"));
 
@@ -19,11 +22,13 @@ const AppLayout = () => {
   });
 
   return (
-    <UserContext.Provider value={{ user: newUser }}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{ user: newUser, setNewUser: setNewUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -56,6 +61,10 @@ const AppRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

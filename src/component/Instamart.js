@@ -1,9 +1,8 @@
 const Instamart = () => {
   return (
-    <>
-      <h1> Rs 100 for two</h1>
-      <h2> This is Instamart, we deliver in 30 min</h2>
-    </>
+    <div className="flex justify-center py-20 font-bold text-5xl">
+      Service Unavailable
+    </div>
   );
 };
 

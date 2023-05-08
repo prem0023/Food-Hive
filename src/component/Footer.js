@@ -11,39 +11,39 @@ const Footer = () => {
     <>
       <div className="flex justify-end w-screen h-20 mt-40 bg-purple-900">
         <ul className="flex items-center pr-5">
-          <l1 className="px-3">
+          <li className="px-3">
             <Link
               target="_blank"
               to={"https://www.linkedin.com/in/phanishwarnath/"}
             >
               <img src={linkedin} />
             </Link>
-          </l1>
-          <l1 className="px-3">
+          </li>
+          <li className="px-3">
             <Link target="_blank" to={"https://github.com/prem0023"}>
               <img src={github} />
             </Link>
-          </l1>
-          <l1 className="px-3">
+          </li>
+          <li className="px-3">
             <Link target="_blank" to={"https://twitter.com/phanishwar_nath"}>
               <img src={twitter} />
             </Link>
-          </l1>
-          <l1 className="px-3">
+          </li>
+          <li className="px-3">
             <Link target="_blank" to={"https://www.whatsapp.com/"}>
               <img src={whatsapp} />
             </Link>
-          </l1>
-          <l1 className="px-3">
+          </li>
+          <li className="px-3">
             <Link target="_blank" to={"https://www.instagram.com/"}>
               <img src={instagram} />
             </Link>
-          </l1>
-          <l1 className="px-3">
+          </li>
+          <li className="px-3">
             <Link target="_blank" to={"https://www.facebook.com/"}>
               <img src={facebook} />
             </Link>
-          </l1>
+          </li>
         </ul>
       </div>
       <div className=" w-screen h-96 bg-slate-900">
@@ -66,7 +66,7 @@ const Footer = () => {
         {" "}
         <span className="flex items-center text-white">
           {" "}
-          ©️ 2023 : Phanishwar Nath{" "}
+          ©️ 2023 Copyright : Phanishwar Nath{" "}
         </span>
       </div>
     </>

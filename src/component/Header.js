@@ -1,6 +1,8 @@
 import { logo } from "./constant";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { useSelector } from "react-redux";
+import cartSlice from "../utils/cartSlice";
 
 const Title = () => {
   return (
@@ -16,6 +18,7 @@ const Title = () => {
 
 const Header = () => {
   const isOnline = useOnline();
+  const store = useSelector((store) => store.cart.items);
   return (
     <>
       <div className="flex justify-between bg-purple-100 drop-shadow-lg">
@@ -35,7 +38,9 @@ const Header = () => {
           <li className="px-3 hover:font-bold">
             <Link to={"./Instamart"}>Instamart</Link>
           </li>
-          <li className="px-3">Cart</li>
+          <li className="px-3 hover:font-bold">
+            <Link to={"/cart"}>Cart-{store.length}</Link>
+          </li>
         </ul>
       </div>
     </>
