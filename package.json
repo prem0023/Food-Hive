@@ -4,21 +4,27 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "author": "Phanishwar Nath",
   "license": "ISC",
   "dependencies": {
+    "@parcel/transformer-react-refresh-wrap": "^2.8.3",
+    "@reduxjs/toolkit": "^1.9.5",
     "node-modules": "^1.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.8.3",
-    "process": "^0.11.10"
+    "postcss": "^8.4.23",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.2"
   },
   "description": ""
 }
