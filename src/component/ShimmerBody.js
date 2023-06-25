@@ -1,14 +1,14 @@
 const ShimmerSearch = () => {
   return (
-    <div className="flex justify-center py-16">
-      <div className="shadow-lg h-10 w-80 bg-purple-100 rounded-md" />
+    <div className="flex justify-center py-10">
+      <div className="h-10 w-80 px-2 bg-purple-100 rounded-md" />
     </div>
   );
 };
 
 const ShimmerRestroCard = () => {
   return (
-    <div className="w-96 m-3 h-96 rounded-md bg-purple-100 hover:shadow-xl hover:bg-purple-200" />
+    <div className="w-72 m-2 h-80  rounded-md bg-purple-100 hover:shadow-xl hover:bg-purple-200" />
   );
 };
 

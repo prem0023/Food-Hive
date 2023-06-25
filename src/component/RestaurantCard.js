@@ -10,13 +10,13 @@ const RestaurantCard = ({
 }) => {
   return (
     <>
-      <div className="w-96 m-3 h-96 rounded-md bg-purple-100 object-contain hover:shadow-xl hover:bg-purple-200">
+      <div className="w-72 m-2 h-80 rounded-md border border-gray-100 object-contain hover:shadow-lg hover:bg-gray-100 hover:border-gray-200">
         <div className="p-4">
           <img src={IMG_CDN_URL + cloudinaryImageId}></img>
           <Link to={"/restaurant/" + id}>
-            <h2 className="font-bold text-xl py-2 hover:text-2xl">{name}</h2>
+            <h2 className="font-bold py-2 hover:font-extrabold">{name}</h2>
           </Link>
-          <h3>{cuisines.join(", ")}</h3>
+          <h3 className="font-light text-sm">{cuisines.join(", ")}</h3>
           <h4>{Math.ceil(lastMileTravel) + " KM"}</h4>
         </div>
       </div>

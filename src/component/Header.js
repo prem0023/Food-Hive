@@ -2,13 +2,13 @@ import { logo } from "./constant";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { useSelector } from "react-redux";
-import cartSlice from "../utils/cartSlice";
+// import cartSlice from "../utils/cartSlice";
 
 const Title = () => {
   return (
     <Link to="/">
       <img
-        className="w-24 h-24 m-5 rounded-md hover:drop-shadow-lg"
+        className="h-20 w-20 mx-5 my-2 rounded-md hover:drop-shadow-lg"
         src={logo}
         alt="logo"
       ></img>
