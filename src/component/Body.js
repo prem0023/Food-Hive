@@ -8,6 +8,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [restaurant, setRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     getRestaurant();
@@ -21,13 +22,16 @@ const Body = () => {
     setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   }
 
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
   return restaurant.length == 0 ? (
     <ShimmerUI />
   ) : (
     <>
-      <div className="flex justify-center py-16">
+      <div className="flex justify-center py-10">
         <input
-          className="shadow-lg h-10 w-80 bg-purple-100 rounded-md"
+          className=" h-10 w-80 px-2 border border-purple-200 bg-purple-100 rounded-md focus:border-purple-300 focus:outline-none"
           type="text"
           placeholder=" Search.."
           value={searchText}
@@ -36,7 +40,7 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="rounded-lg h-10 w-16 bg-purple-300 ml-1 font-bold hover:bg-purple-400"
+          className="rounded-lg h-10  px-2 border border-purple-400 bg-purple-300 ml-1 font-bold hover:bg-purple-400"
           onClick={() => {
             const data = searchRestaurant(restaurant, searchText);
             setFilteredRestaurant(data);
@@ -47,9 +51,10 @@ const Body = () => {
       </div>
       <h2
         id="search-result"
-        className=" flex justify-start text-xl py-5 px-52 font-bold"
+        className=" flex justify-start text-xl py-3 px-52 font-bold"
       ></h2>
-      <div className="px-52 flex flex-wrap justify-between">
+
+      <div className="xl:px-16 sm:px-10 flex flex-wrap justify-center">
         {filteredRestaurant.map((restro) => {
           return <RestaurantCard {...restro.data} key={restro.data.id} />;
         })}
