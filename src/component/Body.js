@@ -3,28 +3,59 @@ import RestaurantCard from "./RestaurantCard";
 import ShimmerUI from "./ShimmerUI";
 import { searchRestaurant } from "../utils/helper";
 import { RESTRO_LIST_URL } from "../component/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { addFilteredRestro, addRestro } from "../utils/restroSlice";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const [restaurant, setRestaurant] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [totalRestro, setTotalRestro] = useState(15);
+
+  const restaurant = useSelector((store) => store.restro.restaurant);
+  const filteredRestaurant = useSelector(
+    (store) => store.restro.filteredRestaurant
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener("scroll", handleInfiniteScroll);
+    return () => window.removeEventListener("scroll", handleInfiniteScroll);
+  }, []);
 
   useEffect(() => {
     getRestaurant();
-  }, []);
+  }, [totalRestro]);
+
+  useEffect(() => {
+    dispatch(addFilteredRestro(restaurant));
+  }, [restaurant]);
 
   async function getRestaurant() {
-    let restroList = await fetch(RESTRO_LIST_URL);
+    let restroList = await fetch(
+      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&offset=${totalRestro}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`
+    );
     const json = await restroList.json();
-
-    setRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    newData = json?.data?.cards || [];
+    dispatch(addRestro(newData));
+    setIsLoading(false);
   }
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  const handleInfiniteScroll = () => {
+    const pageHeight = window.innerHeight;
+    const scrolledHeight = document.documentElement.scrollTop;
+    const totalPageHeight = document.documentElement.scrollHeight;
+
+    try {
+      if (pageHeight + scrolledHeight + 1000 >= totalPageHeight && !isLoading) {
+        setIsLoading(true);
+        setTotalRestro((prev) => prev + 15);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return restaurant.length == 0 ? (
     <ShimmerUI />
   ) : (
@@ -43,7 +74,7 @@ const Body = () => {
           className="rounded-lg h-10  px-2 border border-purple-400 bg-purple-300 ml-1 font-bold hover:bg-purple-400"
           onClick={() => {
             const data = searchRestaurant(restaurant, searchText);
-            setFilteredRestaurant(data);
+            dispatch(addFilteredRestro(data));
           }}
         >
           Submit
@@ -55,8 +86,13 @@ const Body = () => {
       ></h2>
 
       <div className="xl:px-16 sm:px-10 flex flex-wrap justify-center">
-        {filteredRestaurant.map((restro) => {
-          return <RestaurantCard {...restro.data} key={restro.data.id} />;
+        {filteredRestaurant.map((restro, index) => {
+          return (
+            <RestaurantCard
+              {...restro.data.data}
+              key={restro.data.data.id + index}
+            />
+          );
         })}
       </div>
     </>
