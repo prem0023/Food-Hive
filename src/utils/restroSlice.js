@@ -5,16 +5,22 @@ const restroSlice = createSlice({
   initialState: {
     restaurant: [],
     filteredRestaurant: [],
+    totalRestro: 15,
   },
   reducers: {
     addRestro: (state, action) => {
       state.restaurant = [...state.restaurant, ...action.payload];
+      // state.totalRestro = state.restaurant.length;
     },
     addFilteredRestro: (state, action) => {
       state.filteredRestaurant = [...action.payload];
+    },
+    setTotalRestro: (state, action) => {
+      state.totalRestro = state.restaurant.length + action.payload;
     },
   },
 });
 
 export default restroSlice.reducer;
-export const { addRestro, addFilteredRestro } = restroSlice.actions;
+export const { addRestro, addFilteredRestro, setTotalRestro } =
+  restroSlice.actions;

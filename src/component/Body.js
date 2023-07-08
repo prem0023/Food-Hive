@@ -2,29 +2,35 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import ShimmerUI from "./ShimmerUI";
 import { searchRestaurant } from "../utils/helper";
-import { RESTRO_LIST_URL } from "../component/constant";
+// import { RESTRO_LIST_URL } from "../component/constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addFilteredRestro, addRestro } from "../utils/restroSlice";
+import {
+  addFilteredRestro,
+  addRestro,
+  setTotalRestro,
+} from "../utils/restroSlice";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [totalRestro, setTotalRestro] = useState(15);
+  // const [totalRestro, setTotalRestro] = useState(15);
 
+  const totalRestro = useSelector((store) => store.restro.totalRestro);
   const restaurant = useSelector((store) => store.restro.restaurant);
   const filteredRestaurant = useSelector(
     (store) => store.restro.filteredRestaurant
   );
   const dispatch = useDispatch();
 
+  console.log(totalRestro);
+
   useEffect(() => {
-    window.scrollTo(0, 0);
     window.addEventListener("scroll", handleInfiniteScroll);
     return () => window.removeEventListener("scroll", handleInfiniteScroll);
   }, []);
 
   useEffect(() => {
-    getRestaurant();
+    const timeId = setTimeout(() => getRestaurant(), 100);
+    return () => clearTimeout(timeId);
   }, [totalRestro]);
 
   useEffect(() => {
@@ -38,7 +44,6 @@ const Body = () => {
     const json = await restroList.json();
     newData = json?.data?.cards || [];
     dispatch(addRestro(newData));
-    setIsLoading(false);
   }
 
   const handleInfiniteScroll = () => {
@@ -47,9 +52,9 @@ const Body = () => {
     const totalPageHeight = document.documentElement.scrollHeight;
 
     try {
-      if (pageHeight + scrolledHeight + 1000 >= totalPageHeight && !isLoading) {
-        setIsLoading(true);
-        setTotalRestro((prev) => prev + 15);
+      if (pageHeight + scrolledHeight + 1000 >= totalPageHeight) {
+        console.log(totalRestro);
+        dispatch(setTotalRestro(totalRestro + 15));
       }
     } catch (error) {
       console.log(error);
