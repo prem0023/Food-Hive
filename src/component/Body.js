@@ -12,7 +12,6 @@ import {
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  // const [totalRestro, setTotalRestro] = useState(15);
 
   const totalRestro = useSelector((store) => store.restro.totalRestro);
   const restaurant = useSelector((store) => store.restro.restaurant);

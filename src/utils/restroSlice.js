@@ -10,7 +10,6 @@ const restroSlice = createSlice({
   reducers: {
     addRestro: (state, action) => {
       state.restaurant = [...state.restaurant, ...action.payload];
-      // state.totalRestro = state.restaurant.length;
     },
     addFilteredRestro: (state, action) => {
       state.filteredRestaurant = [...action.payload];
