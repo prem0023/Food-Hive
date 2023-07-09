@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom";
-// import { IMG_CDN_URL } from "./constant";
 import useRestaurant from "../utils/useRestaurant";
-// import { useDispatch } from "react-redux";
 import FoodItem from "./FoodItem";
 
 const RestaurantMenu = () => {

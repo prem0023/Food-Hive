@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import ShimmerUI from "./ShimmerUI";
 import { searchRestaurant } from "../utils/helper";
-// import { RESTRO_LIST_URL } from "../component/constant";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addFilteredRestro,
@@ -19,8 +18,6 @@ const Body = () => {
     (store) => store.restro.filteredRestaurant
   );
   const dispatch = useDispatch();
-
-  console.log(totalRestro);
 
   useEffect(() => {
     window.addEventListener("scroll", handleInfiniteScroll);
@@ -52,7 +49,6 @@ const Body = () => {
 
     try {
       if (pageHeight + scrolledHeight + 1000 >= totalPageHeight) {
-        console.log(totalRestro);
         dispatch(setTotalRestro(totalRestro + 15));
       }
     } catch (error) {
