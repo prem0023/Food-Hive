@@ -2,7 +2,6 @@ import { logo } from "./constant";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { useSelector } from "react-redux";
-// import cartSlice from "../utils/cartSlice";
 
 const Title = () => {
   return (

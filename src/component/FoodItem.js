@@ -6,27 +6,33 @@ const FoodItem = (newItem) => {
   const dispatch = useDispatch();
 
   return (
-    <>
-      <div className="flex items-center font-bold">
-        {newItem?.card?.info?.name}
+    <div className="flex items-stretch w-full border-b">
+      <div className="flex flex-col ite pt-1 w-full">
+        <div className="font-bold">{newItem?.card?.info?.name}</div>
+        <div className="pt-2"> Rs {newItem?.card?.info?.price / 100}</div>
       </div>
-      <div className="flex flex-col justify-end">
+      <div className="flex flex-col  justify-end">
         <img
-          className="rounded-md"
+          className="rounded-md h-20 w-36"
           src={FOOD_IMG_CDN_URL + newItem?.card?.info?.imageId}
         />
-        <button
-          className="p-2 my-1 bg-green-400 h-11 w-28 rounded-md text-lg font-bold hover:bg-green-500 text-white"
-          onClick={() => {
-            dispatch(
-              addItems([newItem?.card?.info?.name, newItem?.card?.info?.price])
-            );
-          }}
-        >
-          Add
-        </button>
+        <div className="flex justify-end">
+          <button
+            className="my-1 bg-gray-300 w-16 rounded-md font-bold hover:bg-gray-400 "
+            onClick={() => {
+              dispatch(
+                addItems([
+                  newItem?.card?.info?.name,
+                  newItem?.card?.info?.price,
+                ])
+              );
+            }}
+          >
+            Add
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -16,7 +16,10 @@ const Cart = () => {
       <ul className="m-12">
         {store.map((item, index) => {
           return (
-            <li className=" flex justify-between p-2 text-lg" key={index}>
+            <li
+              className=" flex justify-between p-2 text-lg border-b"
+              key={index}
+            >
               <div>{item[0]}</div>
               <div>{item[1] / 100}</div>
             </li>

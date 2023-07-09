@@ -35,12 +35,15 @@ const Footer = () => {
             </Link>
           </li>
           <li className="px-3">
-            <Link target="_blank" to={"https://www.instagram.com/"}>
+            <Link target="_blank" to={"https://www.instagram.com/prem_0023/"}>
               <img src={instagram} />
             </Link>
           </li>
           <li className="px-3">
-            <Link target="_blank" to={"https://www.facebook.com/"}>
+            <Link
+              target="_blank"
+              to={"https://www.facebook.com/phanishwar.nath"}
+            >
               <img src={facebook} />
             </Link>
           </li>
